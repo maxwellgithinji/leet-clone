@@ -4,6 +4,7 @@ import React from 'react';
 
 import Button from '../Button/Button';
 import Container from '../Container/Container';
+import Modal from '../Modal/Modal';
 import Navbar from '../NavBar/Navbar';
 import Canvas from './Canvas';
 
@@ -19,6 +20,8 @@ export function Default() {
 export function SignUp() {
   const button = <Button text="Sign In" />;
   const navbar = <Navbar button={button} />;
+  const modalBody = <div>Hello</div>;
+  const modal = <Modal modalBody={modalBody} />;
   const container = (
     <Container tailwindClasses="pointer-events-none flex select-none items-center justify-center">
       <Image
@@ -29,5 +32,5 @@ export function SignUp() {
       />
     </Container>
   );
-  return <Canvas navbar={navbar} container={container} />;
+  return <Canvas navbar={navbar} container={container} modal={modal} />;
 }
