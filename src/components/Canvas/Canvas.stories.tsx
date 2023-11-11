@@ -18,7 +18,7 @@ export function Default() {
 }
 
 export function SignUp() {
-  const button = <Button text="Sign In" />;
+  const button = <Button buttonClass="primary" text="Sign In" />;
   const navbar = <Navbar button={button} />;
   const modalBody = <div>Hello</div>;
   const modal = <Modal modalBody={modalBody} />;

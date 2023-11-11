@@ -14,11 +14,11 @@ export function Default() {
 }
 
 export function SignUp() {
-  const signUpButton = <Button text="Sign Up" />;
+  const signUpButton = <Button buttonClass="primary" text="Sign Up" />;
   return <Navbar button={signUpButton} />;
 }
 
 export function SignIn() {
-  const signInButton = <Button text="Sign In" />;
+  const signInButton = <Button buttonClass="primary" text="Sign In" />;
   return <Navbar button={signInButton} />;
 }

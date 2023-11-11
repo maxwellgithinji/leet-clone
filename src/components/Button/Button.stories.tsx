@@ -8,6 +8,10 @@ export default {
   component: Button,
 } as Meta;
 
-export function Default() {
-  return <Button text="Button" />;
+export function Primary() {
+  return <Button buttonClass="primary" text="Button" />;
+}
+
+export function Secondary() {
+  return <Button buttonClass="secondary" text="Button" />;
 }
