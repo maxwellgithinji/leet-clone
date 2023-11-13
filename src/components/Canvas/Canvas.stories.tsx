@@ -19,18 +19,20 @@ export function Default() {
 
 export function SignUp() {
   const button = <Button buttonClass="primary" text="Sign In" />;
-  const navbar = <Navbar button={button} />;
   const modalBody = <div>Hello</div>;
-  const modal = <Modal modalBody={modalBody} />;
-  const container = (
-    <Container tailwindClasses="pointer-events-none flex select-none items-center justify-center">
-      <Image
-        src="/assets/images/hero.png"
-        alt="Hero Image"
-        width={200}
-        height={200}
-      />
-    </Container>
+
+  return (
+    <Canvas>
+      <Navbar button={button} />
+      <Container tailwindClasses="pointer-events-none flex select-none items-center justify-center">
+        <Image
+          src="/assets/images/hero.png"
+          alt="Hero Image"
+          width={200}
+          height={200}
+        />
+      </Container>
+      <Modal modalBody={modalBody} />
+    </Canvas>
   );
-  return <Canvas navbar={navbar} container={container} modal={modal} />;
 }

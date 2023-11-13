@@ -1,18 +1,15 @@
+import type { ReactNode } from 'react';
 import React from 'react';
 
 export type CanvasProps = {
-  navbar?: React.ReactNode;
-  container?: React.ReactNode;
-  modal?: React.ReactNode;
+  children?: ReactNode;
 };
 
-const Canvas: React.FC<CanvasProps> = ({ navbar, container, modal }) => {
+const Canvas: React.FC<CanvasProps> = ({ children }) => {
   return (
     <div className="relative h-screen bg-gradient-to-b from-gray-600 to-black">
       <div className="mx-auto max-w-7xl" />
-      {navbar}
-      {container}
-      {modal}
+      {children}
     </div>
   );
 };
