@@ -1,4 +1,6 @@
-# Next Boilerplate
+# LeetClone
+
+This is a clone of leetcode, a popular algorithm practice website
 
 ### Site
 
