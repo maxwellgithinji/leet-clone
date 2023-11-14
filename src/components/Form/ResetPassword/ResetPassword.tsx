@@ -10,7 +10,7 @@ type ResetPasswordProps = {
 
 const ResetPassword: React.FC<ResetPasswordProps> = ({ submitForm }) => {
   return (
-    <Form headingText="Reset Password">
+    <Form headingText="Reset Your Password">
       <p className="text-sm text-white">
         Forgotten your password? Enter your email address below and we&apos;ll
         send you an email to reset your password

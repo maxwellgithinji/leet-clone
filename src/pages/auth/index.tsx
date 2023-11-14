@@ -1,4 +1,4 @@
-import { authModalState } from 'atoms/authModalAtoms';
+import { authModalState } from '@atoms/authModalAtoms';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import Button from '@/components/Button/Button';

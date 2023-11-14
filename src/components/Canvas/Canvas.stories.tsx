@@ -32,7 +32,7 @@ export function SignUp() {
           height={200}
         />
       </Container>
-      <Modal modalBody={modalBody} />
+      <Modal modalBody={modalBody} closeModal={() => {}} />
     </Canvas>
   );
 }

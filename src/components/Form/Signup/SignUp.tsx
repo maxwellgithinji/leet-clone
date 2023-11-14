@@ -12,7 +12,7 @@ type SignUpProps = {
 
 const SignUp: React.FC<SignUpProps> = ({ openLoginForm, submitForm }) => {
   return (
-    <Form headingText="Sign up to leet clone">
+    <Form headingText="Sign Up for LeetClone">
       <TextInput
         id="email"
         name="email"

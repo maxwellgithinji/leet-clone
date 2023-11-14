@@ -17,7 +17,7 @@ const Login: React.FC<LoginProps> = ({
   submitForm,
 }) => {
   return (
-    <Form headingText="Login to leet clone">
+    <Form headingText="Login to LeetClone">
       <TextInput
         id="email"
         name="email"
