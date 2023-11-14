@@ -1,4 +1,4 @@
-![Build](https://github.com/maxwellgithinji/leet-clone/actions/workflows/main.yml/badge.svg) [![codecov](https://codecov.io/gh/maxwellgithinji/leet-clone/graph/badge.svg?token=AE1EKGOMPJ)](https://codecov.io/gh/maxwellgithinji/leet-clone)
+![Build](https://github.com/maxwellgithinji/leet-clone/actions/workflows/CI.yml/badge.svg) [![codecov](https://codecov.io/gh/maxwellgithinji/leet-clone/graph/badge.svg?token=AE1EKGOMPJ)](https://codecov.io/gh/maxwellgithinji/leet-clone)
 
 # LeetClone
 
