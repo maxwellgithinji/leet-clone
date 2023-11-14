@@ -3,9 +3,10 @@ import { IoClose } from 'react-icons/io5';
 
 export type ModalProps = {
   modalBody: React.ReactNode;
+  closeModal: React.MouseEventHandler<SVGElement>;
 };
 
-const Modal: React.FC<ModalProps> = ({ modalBody }) => {
+const Modal: React.FC<ModalProps> = ({ modalBody, closeModal }) => {
   return (
     <>
       <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-60" />
@@ -17,7 +18,7 @@ const Modal: React.FC<ModalProps> = ({ modalBody }) => {
                 type="button"
                 className="ml-auto  inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-white hover:bg-gray-800 hover:text-white"
               >
-                <IoClose className="h-5 w-5" />
+                <IoClose className="h-5 w-5" onClick={closeModal} />
               </button>
             </div>
             {modalBody}

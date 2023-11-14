@@ -3,14 +3,19 @@ import React from 'react';
 import Button from '@/components/Button/Button';
 import Form from '@/components/Form/Form';
 import HelpLink from '@/components/HelpLink/HelpLink';
-import Link from '@/components/Link/Link';
 import TextInput from '@/components/TextInput/TextInput';
 
-type LoginProps = {};
+type LoginProps = {
+  openResetPasswordForm: React.MouseEventHandler<HTMLButtonElement>;
+  openSignUpForm: React.MouseEventHandler<HTMLButtonElement>;
+  submitForm: React.MouseEventHandler<HTMLButtonElement>;
+};
 
-const Login: React.FC<LoginProps> = () => {
-  const signUpLink = <Link href="/" text="Create account" />;
-
+const Login: React.FC<LoginProps> = ({
+  openResetPasswordForm,
+  openSignUpForm,
+  submitForm,
+}) => {
   return (
     <Form headingText="Login to leet clone">
       <TextInput
@@ -28,11 +33,29 @@ const Login: React.FC<LoginProps> = () => {
         placeholder="********"
       />
 
-      <Button buttonClass="primary" text="Login" buttonType="submit" />
+      <Button
+        buttonClass="primary"
+        text="Login"
+        buttonType="submit"
+        onClick={submitForm}
+      />
       <div>
-        <Link href="/" text="Forgot Password" />
+        <Button
+          buttonClass="link"
+          text="Forgot Password?"
+          onClick={openResetPasswordForm}
+        />
       </div>
-      <HelpLink question="Not Registered?" link={signUpLink} />
+      <HelpLink
+        question="Not Registered?"
+        link={
+          <Button
+            buttonClass="link"
+            text="Sign Up Today"
+            onClick={openSignUpForm}
+          />
+        }
+      />
     </Form>
   );
 };

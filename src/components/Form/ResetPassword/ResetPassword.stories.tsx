@@ -9,5 +9,5 @@ export default {
 } as Meta;
 
 export function Default() {
-  return <ResetPassword />;
+  return <ResetPassword submitForm={() => {}} />;
 }

@@ -10,5 +10,5 @@ export default {
 
 export function Default() {
   const greeting = <div>Hello</div>;
-  return <Modal modalBody={greeting} />;
+  return <Modal modalBody={greeting} closeModal={() => {}} />;
 }

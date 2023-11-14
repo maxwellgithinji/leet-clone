@@ -1,14 +1,20 @@
 import React from 'react';
 
-type ButtonClass = 'primary' | 'secondary';
+type ButtonClass = 'primary' | 'secondary' | 'link';
 
 export type ButtonProps = {
   buttonClass: ButtonClass;
   text: string;
   buttonType?: 'button' | 'submit' | 'reset';
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const Button: React.FC<ButtonProps> = ({ buttonClass, text, buttonType }) => {
+const Button: React.FC<ButtonProps> = ({
+  buttonClass,
+  text,
+  buttonType,
+  onClick,
+}) => {
   let className: string = '';
 
   switch (buttonClass) {
@@ -20,6 +26,11 @@ const Button: React.FC<ButtonProps> = ({ buttonClass, text, buttonType }) => {
       className =
         'w-full text-white focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-brand-orange hover:bg-brand-orange-s';
       break;
+
+    case 'link':
+      className = 'underline text-blue-700 hover:text-blue-500';
+      break;
+
     default:
       // Handle other cases or provide a default class
       break;
@@ -29,14 +40,14 @@ const Button: React.FC<ButtonProps> = ({ buttonClass, text, buttonType }) => {
   switch (buttonType) {
     case 'submit':
       button = (
-        <button className={className} type="submit">
+        <button className={className} type="submit" onClick={onClick}>
           {text}
         </button>
       );
       break;
     default:
       button = (
-        <button className={className} type="button">
+        <button className={className} type="button" onClick={onClick}>
           {text}
         </button>
       );

@@ -3,14 +3,14 @@ import React from 'react';
 import Button from '@/components/Button/Button';
 import Form from '@/components/Form/Form';
 import HelpLink from '@/components/HelpLink/HelpLink';
-import Link from '@/components/Link/Link';
 import TextInput from '@/components/TextInput/TextInput';
 
-type SignUpProps = {};
+type SignUpProps = {
+  openLoginForm: React.MouseEventHandler<HTMLButtonElement>;
+  submitForm: React.MouseEventHandler<HTMLButtonElement>;
+};
 
-const SignUp: React.FC<SignUpProps> = () => {
-  const loginLink = <Link href="/" text="Login" />;
-
+const SignUp: React.FC<SignUpProps> = ({ openLoginForm, submitForm }) => {
   return (
     <Form headingText="Sign up to leet clone">
       <TextInput
@@ -35,8 +35,22 @@ const SignUp: React.FC<SignUpProps> = () => {
         placeholder="********"
       />
 
-      <Button buttonClass="primary" text="Sign Up" buttonType="submit" />
-      <HelpLink question="Already have an account" link={loginLink} />
+      <Button
+        buttonClass="primary"
+        text="Sign Up"
+        buttonType="submit"
+        onClick={submitForm}
+      />
+      <HelpLink
+        question="Already have an account"
+        link={
+          <Button
+            buttonClass="link"
+            text="Login Here"
+            onClick={openLoginForm}
+          />
+        }
+      />
     </Form>
   );
 };

@@ -4,9 +4,11 @@ import Button from '@/components/Button/Button';
 import Form from '@/components/Form/Form';
 import TextInput from '@/components/TextInput/TextInput';
 
-type ResetPasswordProps = {};
+type ResetPasswordProps = {
+  submitForm: React.MouseEventHandler<HTMLButtonElement>;
+};
 
-const ResetPassword: React.FC<ResetPasswordProps> = () => {
+const ResetPassword: React.FC<ResetPasswordProps> = ({ submitForm }) => {
   return (
     <Form headingText="Reset Password">
       <p className="text-sm text-white">
@@ -21,7 +23,12 @@ const ResetPassword: React.FC<ResetPasswordProps> = () => {
         placeholder="jondoe@email.com"
       />
 
-      <Button buttonClass="primary" text="Reset Password" buttonType="submit" />
+      <Button
+        buttonClass="primary"
+        text="Reset Password"
+        buttonType="submit"
+        onClick={submitForm}
+      />
     </Form>
   );
 };
