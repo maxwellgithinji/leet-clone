@@ -1,4 +1,4 @@
-![Build](https://github.com/maxwellgithinji/leet-clone/actions/workflows/CI.yml/badge.svg) [![codecov](https://codecov.io/gh/maxwellgithinji/leet-clone/graph/badge.svg?token=AE1EKGOMPJ)](https://codecov.io/gh/maxwellgithinji/leet-clone) [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/buddy-works/percy-demo)
+![Build](https://github.com/maxwellgithinji/leet-clone/actions/workflows/CI.yml/badge.svg) [![codecov](https://codecov.io/gh/maxwellgithinji/leet-clone/graph/badge.svg?token=AE1EKGOMPJ)](https://codecov.io/gh/maxwellgithinji/leet-clone) [![Maintainability](https://api.codeclimate.com/v1/badges/6066de3a9a6723994e01/maintainability)](https://codeclimate.com/github/maxwellgithinji/leet-clone/maintainability) [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/buddy-works/percy-demo)
 
 # LeetClone
 
