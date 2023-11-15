@@ -6,6 +6,8 @@ export type TextInputProps = {
   type: string;
   label: string;
   placeholder: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  required?: boolean;
 };
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -14,6 +16,8 @@ const TextInput: React.FC<TextInputProps> = ({
   type,
   label,
   placeholder,
+  onChange,
+  required = false,
 }) => {
   return (
     <div>
@@ -32,6 +36,8 @@ const TextInput: React.FC<TextInputProps> = ({
                 placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500 sm:text-sm
             "
         placeholder={placeholder}
+        onChange={onChange}
+        required={required}
       />
     </div>
   );

@@ -9,5 +9,5 @@ export default {
 } as Meta;
 
 export function Default() {
-  return <SignUp openLoginForm={() => {}} submitForm={() => {}} />;
+  return <SignUp openLoginForm={() => {}} />;
 }

@@ -9,11 +9,5 @@ export default {
 } as Meta;
 
 export function Default() {
-  return (
-    <Login
-      openResetPasswordForm={() => {}}
-      openSignUpForm={() => {}}
-      submitForm={() => {}}
-    />
-  );
+  return <Login openResetPasswordForm={() => {}} openSignUpForm={() => {}} />;
 }

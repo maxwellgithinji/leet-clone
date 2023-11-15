@@ -1,4 +1,7 @@
 import { authModalState } from '@atoms/authModalAtoms';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import Button from '@/components/Button/Button';
@@ -9,12 +12,14 @@ import ResetPassword from '@/components/Form/ResetPassword/ResetPassword';
 import SignUp from '@/components/Form/Signup/SignUp';
 import Modal from '@/components/Modal/Modal';
 import Navbar from '@/components/NavBar/Navbar';
+import { auth } from '@/firebase/firebase';
 
 type AuthProps = {};
 
 const Auth: React.FC<AuthProps> = () => {
   const authModal = useRecoilValue(authModalState);
   const setAuthModalState = useSetRecoilState(authModalState);
+  const [pageLoading, setPageLoading] = useState(true);
 
   const openModal = () => {
     setAuthModalState((prev) => ({ ...prev, isOpen: true }));
@@ -47,7 +52,6 @@ const Auth: React.FC<AuthProps> = () => {
             <Login
               openResetPasswordForm={openResetPasswordForm}
               openSignUpForm={openSignUpForm}
-              submitForm={() => {}}
             />
           }
         />
@@ -58,25 +62,29 @@ const Auth: React.FC<AuthProps> = () => {
       currentAuthModal = (
         <Modal
           closeModal={closeModal}
-          modalBody={
-            <SignUp openLoginForm={openLoginForm} submitForm={() => {}} />
-          }
+          modalBody={<SignUp openLoginForm={openLoginForm} />}
         />
       );
       break;
 
     case 'resetPassword':
       currentAuthModal = (
-        <Modal
-          closeModal={closeModal}
-          modalBody={<ResetPassword submitForm={() => {}} />}
-        />
+        <Modal closeModal={closeModal} modalBody={<ResetPassword />} />
       );
       break;
 
     default:
       break;
   }
+
+  const router = useRouter();
+  const [user, loading] = useAuthState(auth);
+  useEffect(() => {
+    if (user) router.push('/');
+    if (!loading && !user) setPageLoading(false);
+  }, [user, router, loading]);
+
+  if (pageLoading) return null;
 
   return (
     <Canvas>
