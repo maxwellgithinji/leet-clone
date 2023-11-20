@@ -1,4 +1,5 @@
 import { authModalState } from '@atoms/authModalAtoms';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -94,7 +95,7 @@ const Auth: React.FC<AuthProps> = () => {
         }
       />
       <Container tailwindClasses="pointer-events-none flex select-none items-center justify-center">
-        <img
+        <Image
           src="/assets/images/hero.png"
           alt="Hero"
           width={700}
