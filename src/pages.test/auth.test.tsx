@@ -1,22 +1,24 @@
-import { render, screen } from '@testing-library/react';
+// Import the necessary dependencies from testing-library
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { RecoilRoot } from 'recoil';
 
+// Import your Auth component
 import Auth from '@/pages/auth/index';
 
 describe('Auth page', () => {
-  it('renders Auth page correctly', () => {
+  it('renders Auth page correctly', async () => {
     render(
       <RecoilRoot>
         <Auth />
       </RecoilRoot>,
     );
 
-    // Add your assertions based on the structure of your Auth component
-    const loginButton = screen.getByRole('button', { name: 'Login' });
-    expect(loginButton).toBeInTheDocument();
-
-    // You can add more assertions based on your component structure
+    // Wait for the page to load (handle the null case)
+    await waitFor(() => {
+      const loginButton = screen.getByRole('button', { name: 'Login' });
+      expect(loginButton).toBeInTheDocument();
+    });
   });
 
   it('renders Login modal when Login button is clicked', async () => {
@@ -26,6 +28,12 @@ describe('Auth page', () => {
       </RecoilRoot>,
     );
 
+    // Wait for the page to load (handle the null case)
+    await waitFor(() => {
+      const loginButton = screen.getByRole('button', { name: 'Login' });
+      expect(loginButton).toBeInTheDocument();
+    });
+
     // Click on the Login button to open the modal
     const loginButton = screen.getByRole('button', { name: 'Login' });
     await userEvent.click(loginButton);
@@ -33,16 +41,20 @@ describe('Auth page', () => {
     // Add assertions to check if the Login modal title is rendered
     const loginModalTitle = screen.getByText('Login to LeetClone');
     expect(loginModalTitle).toBeInTheDocument();
-
-    // You can add more assertions based on your modal structure
   });
 
-  it('navigates to SignUp modal when "Sign Up Today', async () => {
+  it('navigates to SignUp modal when "Sign Up Today" is clicked', async () => {
     render(
       <RecoilRoot>
         <Auth />
       </RecoilRoot>,
     );
+
+    // Wait for the page to load (handle the null case)
+    await waitFor(() => {
+      const loginButton = screen.getByRole('button', { name: 'Login' });
+      expect(loginButton).toBeInTheDocument();
+    });
 
     // Click on the Login button to open the modal
     const loginButton = screen.getByRole('button', { name: 'Login' });
@@ -55,8 +67,6 @@ describe('Auth page', () => {
     // Add assertions to check if the SignUp modal is rendered
     const signUpModalTitle = screen.getByText('Sign Up for LeetClone');
     expect(signUpModalTitle).toBeInTheDocument();
-
-    // You can add more assertions based on your SignUp modal structure
   });
 
   it('navigates to Reset Password modal when "Forgot Password?" is clicked', async () => {
@@ -65,6 +75,12 @@ describe('Auth page', () => {
         <Auth />
       </RecoilRoot>,
     );
+
+    // Wait for the page to load (handle the null case)
+    await waitFor(() => {
+      const loginButton = screen.getByRole('button', { name: 'Login' });
+      expect(loginButton).toBeInTheDocument();
+    });
 
     // Click on the Login button to open the modal
     const loginButton = screen.getByRole('button', { name: 'Login' });
@@ -77,7 +93,5 @@ describe('Auth page', () => {
     // Add assertions to check if the Reset Password modal is rendered
     const resetPasswordModalTitle = screen.getByText('Reset Your Password');
     expect(resetPasswordModalTitle).toBeInTheDocument();
-
-    // You can add more assertions based on your Reset Password modal structure
   });
 });
