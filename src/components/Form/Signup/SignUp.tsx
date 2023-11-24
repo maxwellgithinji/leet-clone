@@ -1,52 +1,23 @@
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import React from 'react';
 
 import Button from '@/components/Button/Button';
 import Form from '@/components/Form/Form';
 import HelpLink from '@/components/HelpLink/HelpLink';
 import TextInput from '@/components/TextInput/TextInput';
-import { auth } from '@/firebase/firebase';
 
 type SignUpProps = {
   openLoginForm: React.MouseEventHandler<HTMLButtonElement>;
+  handleChangeInput: React.ChangeEventHandler<HTMLInputElement>;
+  handleSignUp: React.FormEventHandler<HTMLFormElement>;
+  loading: boolean;
 };
 
-const SignUp: React.FC<SignUpProps> = ({ openLoginForm }) => {
-  const [inputs, setInputs] = useState({
-    email: '',
-    displayName: '',
-    password: '',
-  });
-
-  const router = useRouter();
-  const [createUserWithEmailAndPassword, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
-
-  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleSignUp = async (e: React.ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      const newUser = await createUserWithEmailAndPassword(
-        inputs.email,
-        inputs.password,
-      );
-
-      if (!newUser) return;
-
-      router.push('/');
-    } catch (err: any) {
-      console.log(err.message);
-    }
-  };
-
-  useEffect(() => {
-    if (error) console.log(error);
-  }, [error]);
-
+const SignUp: React.FC<SignUpProps> = ({
+  openLoginForm,
+  handleChangeInput,
+  handleSignUp,
+  loading,
+}) => {
   return (
     <Form headingText="Sign Up for LeetClone" onSubmit={handleSignUp}>
       <TextInput

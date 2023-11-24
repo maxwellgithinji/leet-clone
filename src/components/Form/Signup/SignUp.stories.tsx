@@ -9,5 +9,23 @@ export default {
 } as Meta;
 
 export function Default() {
-  return <SignUp openLoginForm={() => {}} />;
+  return (
+    <SignUp
+      openLoginForm={() => {}}
+      handleChangeInput={() => {}}
+      handleSignUp={() => {}}
+      loading={false}
+    />
+  );
+}
+
+export function Submitting() {
+  return (
+    <SignUp
+      openLoginForm={() => {}}
+      handleChangeInput={() => {}}
+      handleSignUp={() => {}}
+      loading
+    />
+  );
 }

@@ -8,12 +8,12 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import Button from '@/components/Button/Button';
 import Canvas from '@/components/Canvas/Canvas';
 import Container from '@/components/Container/Container';
-import Login from '@/components/Form/Login/Login';
-import ResetPassword from '@/components/Form/ResetPassword/ResetPassword';
-import SignUp from '@/components/Form/Signup/SignUp';
-import Modal from '@/components/Modal/Modal';
 import Navbar from '@/components/NavBar/Navbar';
 import { auth } from '@/firebase/firebase';
+
+import LoginModal from './_LoginModal';
+import ResetPasswordModal from './_ResetPasswordModal';
+import SignUpModal from './_SignUpModal';
 
 type AuthProps = {};
 
@@ -47,31 +47,27 @@ const Auth: React.FC<AuthProps> = () => {
   switch (authModal.type) {
     case 'login':
       currentAuthModal = (
-        <Modal
+        <LoginModal
           closeModal={closeModal}
-          modalBody={
-            <Login
-              openResetPasswordForm={openResetPasswordForm}
-              openSignUpForm={openSignUpForm}
-            />
-          }
+          openResetPasswordForm={openResetPasswordForm}
+          openSignUpForm={openSignUpForm}
+          loading
         />
       );
       break;
 
     case 'signUp':
       currentAuthModal = (
-        <Modal
+        <SignUpModal
           closeModal={closeModal}
-          modalBody={<SignUp openLoginForm={openLoginForm} />}
+          openLoginForm={openLoginForm}
+          loading
         />
       );
       break;
 
     case 'resetPassword':
-      currentAuthModal = (
-        <Modal closeModal={closeModal} modalBody={<ResetPassword />} />
-      );
+      currentAuthModal = <ResetPasswordModal closeModal={closeModal} loading />;
       break;
 
     default:

@@ -1,53 +1,25 @@
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import React from 'react';
 
 import Button from '@/components/Button/Button';
 import Form from '@/components/Form/Form';
 import HelpLink from '@/components/HelpLink/HelpLink';
 import TextInput from '@/components/TextInput/TextInput';
-import { auth } from '@/firebase/firebase';
 
 type LoginProps = {
   openResetPasswordForm: React.MouseEventHandler<HTMLButtonElement>;
   openSignUpForm: React.MouseEventHandler<HTMLButtonElement>;
+  handleChangeInput: React.ChangeEventHandler<HTMLInputElement>;
+  handleLogin: React.FormEventHandler<HTMLFormElement>;
+  loading: boolean;
 };
 
 const Login: React.FC<LoginProps> = ({
   openResetPasswordForm,
   openSignUpForm,
+  handleChangeInput,
+  handleLogin,
+  loading,
 }) => {
-  const [inputs, setInputs] = useState({
-    email: '',
-    password: '',
-  });
-
-  const router = useRouter();
-  const [signInWithEmailAndPassword, error] =
-    useSignInWithEmailAndPassword(auth);
-
-  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleLogin = async (e: React.ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      const newUserLogin = await signInWithEmailAndPassword(
-        inputs.email,
-        inputs.password,
-      );
-      if (!newUserLogin) return;
-      router.push('/');
-    } catch (err: any) {
-      alert(err.message);
-    }
-  };
-
-  useEffect(() => {
-    if (error) console.log(error);
-  }, [error]);
-
   return (
     <Form headingText="Login to LeetClone" onSubmit={handleLogin}>
       <TextInput
@@ -69,7 +41,11 @@ const Login: React.FC<LoginProps> = ({
         onChange={handleChangeInput}
       />
 
-      <Button buttonClass="secondary" text="Login" buttonType="submit" />
+      <Button
+        buttonClass="secondary"
+        text={loading ? 'Logging in...' : 'Login'}
+        buttonType="submit"
+      />
       <div>
         <Button
           buttonClass="link"

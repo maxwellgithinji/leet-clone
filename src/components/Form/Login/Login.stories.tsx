@@ -9,5 +9,25 @@ export default {
 } as Meta;
 
 export function Default() {
-  return <Login openResetPasswordForm={() => {}} openSignUpForm={() => {}} />;
+  return (
+    <Login
+      openResetPasswordForm={() => {}}
+      openSignUpForm={() => {}}
+      handleChangeInput={() => {}}
+      handleLogin={() => {}}
+      loading={false}
+    />
+  );
+}
+
+export function Submitting() {
+  return (
+    <Login
+      openResetPasswordForm={() => {}}
+      openSignUpForm={() => {}}
+      handleChangeInput={() => {}}
+      handleLogin={() => {}}
+      loading
+    />
+  );
 }

@@ -9,5 +9,21 @@ export default {
 } as Meta;
 
 export function Default() {
-  return <ResetPassword />;
+  return (
+    <ResetPassword
+      handleChangeInput={() => {}}
+      handleResetPassword={() => {}}
+      loading={false}
+    />
+  );
+}
+
+export function Submitting() {
+  return (
+    <ResetPassword
+      handleChangeInput={() => {}}
+      handleResetPassword={() => {}}
+      loading
+    />
+  );
 }

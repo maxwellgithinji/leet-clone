@@ -1,25 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Button from '@/components/Button/Button';
 import Form from '@/components/Form/Form';
 import TextInput from '@/components/TextInput/TextInput';
 
-type ResetPasswordProps = {};
+type ResetPasswordProps = {
+  handleChangeInput: React.ChangeEventHandler<HTMLInputElement>;
+  handleResetPassword: React.FormEventHandler<HTMLFormElement>;
+  loading: boolean;
+};
 
-const ResetPassword: React.FC<ResetPasswordProps> = () => {
-  const [inputs, setInputs] = useState({
-    email: '',
-  });
-
-  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleResetPassword = (e: React.ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(inputs);
-  };
-
+const ResetPassword: React.FC<ResetPasswordProps> = ({
+  handleChangeInput,
+  handleResetPassword,
+  loading,
+}) => {
   return (
     <Form headingText="Reset Your Password" onSubmit={handleResetPassword}>
       <p className="text-sm text-white">
@@ -38,7 +33,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = () => {
 
       <Button
         buttonClass="secondary"
-        text="Reset Password"
+        text={loading ? 'Resetting Password...' : 'Reset Password'}
         buttonType="submit"
       />
     </Form>
