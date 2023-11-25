@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { RecoilRoot } from 'recoil';
 
 import Index from '@/pages/index';
 
@@ -7,14 +8,15 @@ import Index from '@/pages/index';
 
 describe('Index page', () => {
   describe('Render method', () => {
-    it('should have h1 tag', () => {
-      render(<Index />);
+    it('should have a top bar with the specified header text', () => {
+      render(
+        <RecoilRoot>
+          <Index />
+        </RecoilRoot>,
+      );
 
-      const heading = screen.getByRole('heading', {
-        name: 'Index',
-      });
-
-      expect(heading).toBeInTheDocument();
+      const headerText = screen.getByText(/QUALITY OVER QUANTITY/i);
+      expect(headerText).toBeInTheDocument();
     });
   });
 });

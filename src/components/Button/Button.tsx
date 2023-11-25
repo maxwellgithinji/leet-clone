@@ -1,6 +1,6 @@
 import React from 'react';
 
-type ButtonClass = 'primary' | 'secondary' | 'link';
+type ButtonClass = 'primary' | 'secondary' | 'link' | 'topbar';
 
 export type ButtonProps = {
   buttonClass: ButtonClass;
@@ -29,6 +29,9 @@ const Button: React.FC<ButtonProps> = ({
 
     case 'link':
       className = 'underline text-blue-700 hover:text-blue-500';
+      break;
+    case 'topbar':
+      className = 'cursor-pointer rounded bg-dark-fill-3 px-2 py-1';
       break;
 
     default:

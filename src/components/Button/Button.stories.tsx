@@ -15,3 +15,7 @@ export function Primary() {
 export function Secondary() {
   return <Button buttonClass="secondary" text="Button" />;
 }
+
+export function TopBar() {
+  return <Button buttonClass="topbar" text="Button" />;
+}
