@@ -14,11 +14,23 @@ export function Default() {
 }
 
 export function SignUp() {
-  const signUpButton = <Button buttonClass="primary" text="Sign Up" />;
+  const signUpButton = (
+    <Button
+      buttonClass="primary"
+      text="Sign Up"
+      buttonName="opensignupmodal-button"
+    />
+  );
   return <Navbar button={signUpButton} />;
 }
 
-export function SignIn() {
-  const signInButton = <Button buttonClass="primary" text="Sign In" />;
+export function Login() {
+  const signInButton = (
+    <Button
+      buttonClass="primary"
+      text="Login"
+      buttonName="openloginmodal-button"
+    />
+  );
   return <Navbar button={signInButton} />;
 }

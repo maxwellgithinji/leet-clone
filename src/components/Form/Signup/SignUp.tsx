@@ -52,6 +52,7 @@ const SignUp: React.FC<SignUpProps> = ({
         buttonClass="secondary"
         text={loading ? 'Signing Up...' : 'Sign Up'}
         buttonType="submit"
+        buttonName="submitsignup-button"
       />
       <HelpLink
         question="Already have an account"
@@ -60,6 +61,7 @@ const SignUp: React.FC<SignUpProps> = ({
             buttonClass="link"
             text="Login Here"
             onClick={openLoginForm}
+            buttonName="loginherelink-button"
           />
         }
       />

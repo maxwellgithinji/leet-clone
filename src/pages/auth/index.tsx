@@ -87,7 +87,12 @@ const Auth: React.FC<AuthProps> = () => {
     <Canvas>
       <Navbar
         button={
-          <Button buttonClass="primary" text="Login" onClick={openModal} />
+          <Button
+            buttonClass="primary"
+            text="Login"
+            onClick={openModal}
+            buttonName="navbaropenloginmodal-button"
+          />
         }
       />
       <Container tailwindClasses="pointer-events-none flex select-none items-center justify-center">

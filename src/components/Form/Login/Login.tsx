@@ -45,12 +45,14 @@ const Login: React.FC<LoginProps> = ({
         buttonClass="secondary"
         text={loading ? 'Logging in...' : 'Login'}
         buttonType="submit"
+        buttonName="submitlogin-button"
       />
       <div>
         <Button
           buttonClass="link"
           text="Forgot Password?"
           onClick={openResetPasswordForm}
+          buttonName="forgotpasswordlink-button"
         />
       </div>
       <HelpLink
@@ -60,6 +62,7 @@ const Login: React.FC<LoginProps> = ({
             buttonClass="link"
             text="Sign Up Today"
             onClick={openSignUpForm}
+            buttonName="signuptodaylink-button"
           />
         }
       />

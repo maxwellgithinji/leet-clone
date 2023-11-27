@@ -35,6 +35,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({
         buttonClass="secondary"
         text={loading ? 'Resetting Password...' : 'Reset Password'}
         buttonType="submit"
+        buttonName="submitresetpassword-button"
       />
     </Form>
   );

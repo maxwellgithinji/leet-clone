@@ -31,7 +31,12 @@ const TopBar: React.FC<TopBarProps> = () => {
             </a>
           </div>
           <Link href="/auth">
-            <Button buttonClass="topbar" buttonType="button" text="Login" />
+            <Button
+              buttonClass="topbar"
+              buttonType="button"
+              text="Login"
+              buttonName="topbaropenloginmodal-button"
+            />
           </Link>
         </div>
       </div>

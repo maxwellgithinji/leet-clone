@@ -5,7 +5,7 @@ type IndexProps = {};
 
 const Index: React.FC<IndexProps> = () => {
   return (
-    <main className="min-h-screen bg-dark-layer-2">
+    <main className="home min-h-screen bg-dark-layer-2">
       <TopBar />
       <Table
         header="QUALITY OVER QUANTITY"

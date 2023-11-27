@@ -4,6 +4,7 @@ type ButtonClass = 'primary' | 'secondary' | 'link' | 'topbar';
 
 export type ButtonProps = {
   buttonClass: ButtonClass;
+  buttonName: string;
   text: string;
   buttonType?: 'button' | 'submit' | 'reset';
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -11,6 +12,7 @@ export type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({
   buttonClass,
+  buttonName,
   text,
   buttonType,
   onClick,
@@ -43,14 +45,24 @@ const Button: React.FC<ButtonProps> = ({
   switch (buttonType) {
     case 'submit':
       button = (
-        <button className={className} type="submit" onClick={onClick}>
+        <button
+          className={className}
+          type="submit"
+          onClick={onClick}
+          name={buttonName}
+        >
           {text}
         </button>
       );
       break;
     default:
       button = (
-        <button className={className} type="button" onClick={onClick}>
+        <button
+          className={className}
+          type="button"
+          onClick={onClick}
+          name={buttonName}
+        >
           {text}
         </button>
       );
