@@ -12,17 +12,8 @@ test.describe('Navigation', () => {
           name: 'Login',
         }),
       ).toBeVisible();
-    });
 
-    test('should take screenshot of the auth page', async ({ page }) => {
-      await page.goto('/auth');
-
-      await expect(
-        page.getByRole('button', {
-          name: 'Login',
-        }),
-      ).toBeVisible();
-
+      // Take snapshot of the auth page
       await percySnapshot(page, 'Auth Page');
     });
 
@@ -50,6 +41,9 @@ test.describe('Navigation', () => {
       await expect(
         page.getByText('QUALITY OVER QUANTITY'), // Content only visible on the homapage
       ).toBeVisible();
+
+      // Take a screenshot of the homepage
+      await percySnapshot(page, 'Home Page');
     });
 
     test('should navigate to the homepage after successful sign up', async ({
@@ -85,6 +79,9 @@ test.describe('Navigation', () => {
       await expect(
         page.getByText('QUALITY OVER QUANTITY'), // Content only visible on the homapage
       ).toBeVisible();
+
+      // Take a screenshot of the homepage
+      await percySnapshot(page, 'Home Page');
     });
   });
 });
